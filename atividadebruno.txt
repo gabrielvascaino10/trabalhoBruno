@@ -1,0 +1,63 @@
+4.1 Conexão
+
+1. Como C# realiza uma conexão com um banco de dados?
+
+O C# usa uma biblioteca específica para se conectar ao banco. No MySQL, usamos uma conexão com uma string de conexão e o método Open() para abrir o acesso ao banco.
+
+2. Qual biblioteca/driver é utilizado pelo banco escolhido?
+
+Para MySQL, podemos utilizar a biblioteca MySqlConnector.
+
+3. Como essa biblioteca é adicionada ao projeto?
+
+Ela pode ser adicionada pelo terminal usando:
+
+dotnet add package MySqlConnector
+
+4. O que é uma string de conexão?
+
+É um texto que contém as informações necessárias para o C# encontrar e acessar o banco de dados.
+
+5. Quais informações normalmente aparecem em uma string de conexão?
+
+Normalmente aparecem o servidor, banco de dados, usuário, senha e porta.
+
+Exemplo:
+
+Server=localhost;Port=3306;Database=escola;User ID=root;Password=1234;
+
+4.2 Comandos SQL
+
+INSERT: usado para adicionar dados ao banco.
+
+SELECT: usado para consultar dados.
+
+UPDATE: usado para alterar dados existentes.
+
+DELETE: usado para excluir dados.
+
+No C#, esses comandos podem ser executados usando o MySqlCommand. Para INSERT, UPDATE e DELETE, normalmente usamos ExecuteNonQuery(). Para SELECT, usamos ExecuteReader().
+
+4.3 Consulta de dados
+
+Como o C# recebe os dados retornados por um SELECT?
+
+Os dados podem ser recebidos através do MySqlDataReader.
+
+Como percorrer os resultados de uma consulta?
+
+Usamos o método Read(), normalmente dentro de um while, para passar por cada registro retornado.
+
+Como transformar os dados retornados pelo banco em objetos de uma classe?
+
+Podemos criar um objeto da classe para cada registro e preencher suas propriedades com os valores recebidos do banco.
+
+4.4 Segurança
+
+O que são parâmetros em comandos SQL e por que eles são importantes?
+
+Parâmetros são valores enviados separadamente do comando SQL. Eles são importantes porque deixam o código mais seguro e ajudam a evitar SQL Injection.
+
+O que pode acontecer quando um sistema monta comandos SQL diretamente utilizando textos digitados pelo usuário?
+
+O sistema pode ficar vulnerável a SQL Injection. Uma pessoa pode inserir um texto que seja interpretado como parte do comando SQL, podendo causar acesso, alteração ou exclusão indevida de dados.
